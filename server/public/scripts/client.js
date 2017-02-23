@@ -11,7 +11,7 @@ $(document).ready(function(){
         $('#peopleList').append('<span id="nameSpan">' + response[i].name + '</span>');
         $('#peopleList').append('<span id="bioSpan">' + response[i].bio + '</span>');
         $('#peopleList').append('<span id="imageSpan">' + response[i].image + '</span>');
-        $('#peopleList').append('<button id="likeButton">Like</button>');
+        $('#peopleList').append('<button id="likeButton">Likes '+ response[i].likes+'</button>');
       }
     }
   });
@@ -21,6 +21,6 @@ $(document).ready(function(){
     success: function(response) {
     console.log('response', response);
 }
-}
+});
 
 });
