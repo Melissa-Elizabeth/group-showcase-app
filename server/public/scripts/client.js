@@ -11,7 +11,7 @@ $(document).ready(function(){
         $('#peopleList').append('<span id="nameSpan">' + response[i].name + '</span>');
         $('#peopleList').append('<span id="bioSpan">' + response[i].bio + '</span>');
         $('#peopleList').append('<span id="imageSpan">' + response[i].image + '</span>');
-        $('#peopleList').append('<button id="likeButton">Likes '+ response[i].likes+'</button>');
+        $('#peopleList').append('<button class="likeButton" data-name="'+response[i].name+'">Likes '+ response[i].likes+'</button>');
       }
     }
   });
@@ -21,6 +21,17 @@ $(document).ready(function(){
     success: function(response) {
     console.log('response', response);
 }
+});
+
+$('#peopleList').on('click', '.likeButton', function(){
+  console.log($(this).data().name);
+$.ajax({
+  type:'POST',
+  url: '/likes/',
+  success: function(response) {
+  console.log('response', response);
+}
+});
 });
 
 });
